@@ -1,6 +1,6 @@
 # LeetCode 
 ![Language](https://img.shields.io/badge/language-Java%20-red.svg) ![Language](https://img.shields.io/badge/language-Python%20-blue.svg) ![Progress](https://img.shields.io/badge/progress-454%20%2F%20656-green.svg) <br />
-The accepted Java/Python solutions and explanations to the leetcode algorithm. <br />
+The accepted Java/Python solutions and explanations to the Leetcode. <br />
 
 ## Table of Contents
 
