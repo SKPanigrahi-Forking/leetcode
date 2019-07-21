@@ -1,4 +1,7 @@
-class Solution {
+/**
+ *
+ */
+class _647_Palindromic_Substrings {
     public int countSubstrings(String s) {
         if (s == null) {
             return 0;
