@@ -1,6 +1,13 @@
+package dynamicProgramming;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+
 /**
- * Given a set of distinct positive integers, find the largest subset such that every pair (Si, Sj) of elements in this
- * subset satisfies:
+ * Given a set of distinct positive integers, find the largest subset such that
+ * every pair (Si, Sj) of elements in this subset satisfies:
  *
  * Si % Sj = 0 or Sj % Si = 0.
  *

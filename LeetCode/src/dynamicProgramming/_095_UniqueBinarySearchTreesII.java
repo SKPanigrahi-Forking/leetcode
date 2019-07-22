@@ -1,18 +1,16 @@
+package dynamicProgramming;
+
+import java.util.List;
+import java.util.ArrayList;
 /**
  *
- * Given an integer n, generate all structurally unique BST's (binary search trees) that store values 1 ... n.
+ * Given an integer n, generate all structurally unique BST's (binary search
+ * trees) that store values 1 ... n.
  *
  * Example:
  *
- * Input: 3
- * Output:
- * [
- *   [1,null,3,2],
- *   [3,2,null,1],
- *   [3,1,null,null,2],
- *   [2,1,3],
- *   [1,null,2,null,3]
- * ]
+ * Input: 3 Output: [ [1,null,3,2], [3,2,null,1], [3,1,null,null,2], [2,1,3],
+ * [1,null,2,null,3] ]
  */
 class _095_UniqueBinarySearchTreesII {
     public List<TreeNode> generateTrees(int n) {
