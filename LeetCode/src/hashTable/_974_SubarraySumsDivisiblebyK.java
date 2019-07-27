@@ -20,7 +20,7 @@ import java.util.Map;
  * 1 <= A.length <= 30000 -10000 <= A[i] <= 10000 2 <= K <= 10000
  */
 
-class _974_SubarraySumsDivisiblebyK {
+class Main {
     public int subarraysDivByK(int[] A, int K) {
         int res = 0;
         if (A == null || A.length == 0 || K == 0) {
@@ -43,5 +43,8 @@ class _974_SubarraySumsDivisiblebyK {
             }
         }
         return res;
+    }
+    public static void main(String[] args) {
+        System.out.println("x");
     }
 }
