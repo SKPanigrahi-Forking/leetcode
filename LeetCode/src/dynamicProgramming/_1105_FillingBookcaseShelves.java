@@ -32,7 +32,6 @@ package dynamicProgramming;
 
 class _1105_FillingBookcaseShelves {
     public int minHeightShelves(int[][] books, int shelf_width) {
-        int res = Integer.MAX_VALUE;
         if (books == null) {
             return 0;
         }
