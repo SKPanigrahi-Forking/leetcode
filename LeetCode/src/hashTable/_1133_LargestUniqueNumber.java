@@ -11,7 +11,7 @@ import java.util.Map;
  * If no integer occurs once, return -1.
  * 
  */
-class Solution {
+class _1048_LongestStringChain {
     public int largestUniqueNumber(int[] A) {
         if (A == null || A.length == 0) {
             return -1;

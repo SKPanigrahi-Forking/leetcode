@@ -28,7 +28,7 @@ import java.util.Map;
  * Each answers[i] will be an integer in the range [0, 999].
  * 
  */
-class Solution {
+class _884_UncommonWordsfromTwoSentences {
     public int numRabbits(int[] answers) {
         if (answers == null || answers.length == 0) {
             return 0;

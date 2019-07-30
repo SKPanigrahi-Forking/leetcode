@@ -28,7 +28,7 @@ import java.util.Map;
  * Input: A = "apple apple", B = "banana" Output: ["banana"]
  */
 
-class Solution {
+class _884_UncommonWordsfromTwoSentences {
     public String[] uncommonFromSentences(String A, String B) {
         if (A == null || B == null) {
             return new String[0];

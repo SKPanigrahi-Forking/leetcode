@@ -33,10 +33,11 @@ import java.util.Map;
  * 
  * words[i] only consists of English lowercase letters.
  */
-class Solution {
+class _1048_LongestStringChain {
     public int longestStrChain(String[] words) {
         Map<String, Integer> dp = new HashMap<>();
-        Arrays.sort(words, (a, b) -> a.length() - b.length());
+        Arrays
+        .sort(words, (a, b) -> a.length() - b.length());
         int res = 0;
         for (String s : words) {
             int cur = 0;
