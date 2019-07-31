@@ -10,25 +10,26 @@ package linkedlist;
  */
 public class _021_MergeTwoSortedLinkedList {
 	public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-		ListNode dummy = new ListNode(0);
+		ListNode dummy = new ListNode(-1);
 		ListNode cur = dummy;
 		while (l1 != null || l2 != null) {
-			if ((l2 == null) || ((l1 != null) && (l1.val < l2.val))) {
-				cur.next = l1;
-				if (l2 == null) {
-					break; // save time
+			if (l1 != null && l2 != null) {
+				if (l1.val < l2.val) {
+					cur.next = l1;
+					l1 = l1.next;
+				} else {
+					cur.next = l2;
+					l2 = l2.next;
 				}
-				cur = l1;
-				l1 = l1.next;
+				cur = cur.next;
 			}
-
-			else {
+			if (l1 == null) {
 				cur.next = l2;
-				if (l1 == null) {
-					break;
-				}
-				cur = l2;
-				l2 = l2.next;
+				break;
+			}
+			if (l2 == null) {
+				cur.next = l1;
+				break;
 			}
 		}
 		return dummy.next;
