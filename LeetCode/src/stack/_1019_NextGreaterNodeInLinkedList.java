@@ -43,7 +43,7 @@ class ListNode {
     }
 }
 
-class Solution {
+class _1019_NextGreaterNodeInLinkedList {
     public int[] nextLargerNodes(ListNode head) {
         List<Integer> list = new ArrayList<>();
         while (head != null) {
