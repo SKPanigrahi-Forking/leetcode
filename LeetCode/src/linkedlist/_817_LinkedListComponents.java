@@ -33,7 +33,7 @@ import java.util.*;
  * find the end of the connected components 
  * 
  */
-class Solution {
+class _817_LinkedListComponents {
     public int numComponents(ListNode head, int[] G) {
         Set<Integer> set = new HashSet<>();
         for (int num : G) {

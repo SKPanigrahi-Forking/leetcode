@@ -40,7 +40,7 @@ import java.util.List;
  * The length of each words[i] and pairs[i][j] will be in the range [1, 20].
  */
 
-class Solution {
+class _734_SentenceSimilarity {
     public boolean areSentencesSimilar(String[] words1, String[] words2, List<List<String>> pairs) {
         Set<String> set = new HashSet<>();
         for (List<String> pair : pairs) {

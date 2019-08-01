@@ -8,7 +8,7 @@ import java.util.*;
  * starting from the bottom left of the board, and alternating direction each
  * row.
  */
-class Solution {
+class _909_SnakesandLadders {
     public int snakesAndLadders(int[][] board) {
         int cols = board[0].length;
         Map<Integer, Integer> map = new HashMap<>();

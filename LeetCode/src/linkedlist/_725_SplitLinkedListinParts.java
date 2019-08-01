@@ -32,7 +32,7 @@ package linkedlist;
  * the input will be an integer in the range [0, 999]. k will be an integer in
  * the range [1, 50].
  */
-class Solution {
+class _725_SplitLinkedListinParts {
     public ListNode[] splitListToParts(ListNode root, int k) {
         int count = 0;
         ListNode[] res = new ListNode[k];

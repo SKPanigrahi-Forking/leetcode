@@ -3,7 +3,7 @@ package bfs;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Solution {
+class _994_RottingOranges {
     private int[] POINTS = { 0, -1, 0, 1, 0 };
     public int orangesRotting(int[][] grid) {
         if (grid == null || grid.length == 0 || grid[0].length == 0) {

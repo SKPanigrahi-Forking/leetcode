@@ -29,7 +29,7 @@ import java.util.*;
  * 
  * Output: 1
  */
-class Solution {
+class _934_ShortestBridge {
     private int[] POINTS = { 0, -1, 0, 1, 0 };
 
     public int shortestBridge(int[][] A) {
