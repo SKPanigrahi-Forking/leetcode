@@ -23,4 +23,16 @@ public class _053_MaximumSubarray {
 		}
 		return max;
 	}
+
+	public int maxSubArray2(int[] nums) {
+        int sum = 0;
+        int max = Integer.MIN_VALUE;
+        int minSum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            max = Math.max(max, sum - minSum);
+            minSum = Math.min(minSum, sum);
+        }
+        return max;
+    }
 }
