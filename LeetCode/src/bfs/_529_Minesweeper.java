@@ -70,6 +70,9 @@ import java.util.Queue;
  * 
  */
 public class _529_Minesweeper {
+	private int[][] POINTS = new int[][] { { -1, -1 }, { -1, 0 }, { -1, 1 }, { 0, -1 }, { 0, 1 }, { 1, -1 }, { 1, 0 },
+			{ 1, 1 } };
+
 	public char[][] updateBoard(char[][] board, int[] click) {
 		if (board == null || click == null) {
 			return null;
@@ -81,41 +84,30 @@ public class _529_Minesweeper {
 		}
 		int rows = board.length;
 		int cols = board[0].length;
-		Queue<int[]> queue = new LinkedList<>();
-		queue.add(click);
+		Queue<Integer> queue = new LinkedList<>();
+		queue.add(click[0] * cols + click[1]);
 		while (!queue.isEmpty()) {
-			int[] cell = queue.poll();
-			int row = cell[0];
-			int col = cell[1];
+			int cur = queue.poll();
+			int row = cur / cols;
+			int col = cur % cols;
 			int count = 0;
-			for (int i = -1; i < 2; i++) {
-				for (int j = -1; j < 2; j++) {
-					if (i == 0 && j == 0) {
-						continue;
-					}
-					int newRow = row + i;
-					int newCol = col + j;
-					if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && board[newRow][newCol] == 'M') {
-						count++;
-					}
+			for (int i = 0; i < POINTS.length; i++) {
+				int newRow = row + POINTS[i][0];
+				int newCol = col + POINTS[i][1];
+				if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && board[newRow][newCol] == 'M') {
+					count++;
 				}
 			}
 			if (count > 0) {
 				board[row][col] = (char) (count + '0');
 			} else {
 				board[row][col] = 'B';
-				for (int i = -1; i < 2; i++) {
-					for (int j = -1; j < 2; j++) {
-						if (i == 0 && j == 0) {
-							continue;
-						}
-						int newRow = row + i;
-						int newCol = col + j;
-						if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols
-								&& board[newRow][newCol] == 'E') {
-							queue.offer(new int[] { newRow, newCol });
-							board[newRow][newCol] = 'B';
-						}
+				for (int i = 0; i < POINTS.length; i++) {
+					int newRow = row + POINTS[i][0];
+					int newCol = col + POINTS[i][1];
+					if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && board[newRow][newCol] == 'E') {
+						board[newRow][newCol] = 'B';
+						queue.offer(newRow * cols + newCol);
 					}
 				}
 			}

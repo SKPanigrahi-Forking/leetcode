@@ -56,14 +56,11 @@ class _542_01Matrix {
             for (int i = 0; i < 4; i++) {
                 int newRow = row + POINT[i];
                 int newCol = col + POINT[i + 1];
-                if (newRow < 0 || newRow >= rows || newCol < 0 || newCol >= cols) {
-                    continue;
+                if (newRow >= 0 && newRow < rows && newCol >=0 && newCol < cols &&
+                   matrix[newRow][newCol] > matrix[row][col] + 1) {
+                    matrix[newRow][newCol] = matrix[row][col] + 1;
+                    queue.offer(newRow * cols + newCol);
                 }
-                if (matrix[newRow][newCol] <= matrix[row][col] + 1) {
-                    continue;
-                }
-                matrix[newRow][newCol] = matrix[row][col] + 1;
-                queue.offer(newRow * cols + newCol);
             }
         }
         return matrix;
