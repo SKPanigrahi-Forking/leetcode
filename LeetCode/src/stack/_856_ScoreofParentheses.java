@@ -31,7 +31,7 @@ import java.util.*;
  * S is a balanced parentheses string, containing only ( and ). 2 <= S.length <=
  * 50
  */
-class Solution {
+class _856_ScoreofParentheses {
     public int scoreOfParentheses1(String S) {
         Stack<Integer> stack = new Stack<>();
         // pre sum

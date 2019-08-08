@@ -25,7 +25,7 @@ import java.util.*;
  * Example 5: Input: "{[]}" Output: true
  * 
  */
-class Solution {
+class _020_ValidParentheses {
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         for (char c : s.toCharArray()) {

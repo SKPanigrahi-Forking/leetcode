@@ -16,7 +16,7 @@ import java.util.Stack;
  * temperature will be an integer in the range [30, 100].
  */
 
-class Solution {
+class _739_DailyTemperatures {
     public int[] dailyTemperatures(int[] T) {
         int len = T.length;
         int[] res = new int[len];
