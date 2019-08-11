@@ -56,7 +56,7 @@ class Interval {
     }
 }
 
-class Solution {
+class _759_EmployeeFreeTime {
     public List<Interval> employeeFreeTime(List<List<Interval>> schedule) {
         List<Interval> res = new ArrayList<>();
         Queue<Interval> pq = new PriorityQueue<>((a, b) -> (a.start - b.start));

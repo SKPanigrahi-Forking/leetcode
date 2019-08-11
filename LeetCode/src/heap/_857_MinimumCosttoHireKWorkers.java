@@ -35,7 +35,7 @@ import java.util.*;
  * <= 10000 1 <= wage[i] <= 10000 Answers within 10^-5 of the correct answer
  * will be considered correct.
  */
-class Solution {
+class _857_MinimumCosttoHireKWorkers {
     public double mincostToHireWorkers(int[] quality, int[] wage, int K) {
         double res = Double.MAX_VALUE;
         int len = quality.length;
