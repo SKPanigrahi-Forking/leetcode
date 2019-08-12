@@ -1,7 +1,5 @@
 package trie;
 
-import java.util.*;
-
 /**
  * 
  * Implement the StreamChecker class as follows:
@@ -48,7 +46,7 @@ import java.util.*;
  * consist of lowercase English letters. Queries will only consist of lowercase
  * English letters. The number of queries is at most 40000.
  */
-class StreamChecker {
+class _1032_StreamofCharacters {
 
     class TrieNode {
         private TrieNode[] children;
@@ -77,7 +75,7 @@ class StreamChecker {
     private TrieNode root = new TrieNode();
     private StringBuilder sb = new StringBuilder();
 
-    public StreamChecker(String[] words) {
+    public _1032_StreamofCharacters(String[] words) {
         for (String word : words) {
             root.insert(word, word.length() - 1);
         }
