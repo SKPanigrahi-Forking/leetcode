@@ -1,9 +1,6 @@
 package unionFind;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 
@@ -51,53 +48,51 @@ Can you do it in time complexity O(k log mn), where k is the length of the posit
  *
  */
 public class _305_NumberOfIslandsII {
-	int[] parent;
-	Set<Integer> set = new HashSet<>();
-	int rows;
-	int cols;
-
-	public void union(int i, int j) {
-		int parentI = find(i);
-		int parentJ = find(j);
-		if (parentI != parentJ) {
-			parent[parentJ] = parentI;
-			set.remove(parentJ);
-		}
-	}
-
-	public int find(int i) {
-		if (i == parent[i]) {
-			return i;
-		}
-		parent[i] = find(i);
-		return parent[i];
-	}
-
-	public void add(int x, int y) {
-		parent[x * cols + y] = x * cols + y;
-		set.add(x * cols + y);
-		int[][] dirs = { { -1, 0 }, { 1, 0 }, { 0, 1 }, { 0, -1 } };
-		for (int[] dir : dirs) {
-			int x1 = x + dir[0];
-			int y1 = y + dir[1];
-			if (x1 >= 0 && x1 < rows && y1 >= 0 && y1 < cols && parent[x1 * cols + y1] != -1) {
-				union(x1 * cols + y1, x * cols + y);
-			}
-		}
-	}
-
-	public List<Integer> numIslands2(int m, int n, int[][] positions) {
-		parent = new int[m * n];
-		rows = m;
-		cols = n;
-		for (int i = 0; i < m * n; i++) {
-			parent[i] = -1;
-		}
-		List<Integer> res = new ArrayList<>();
-		for (int[] position : positions) {
-			add(position[0], position[1]);
-			res.add(set.size());
-		}
-		return res;
-	}
+    private int[] POINTS = {0, -1, 0, 1, 0};
+    
+    public List<Integer> numIslands2(int rows, int cols, int[][] positions) {
+        List<Integer> res = new ArrayList<>();
+        // store all the parent element
+        Set<Integer> set = new HashSet<>();
+        int[] parent = new int[rows * cols];
+        Arrays.fill(parent, -1);
+        for (int[] position : positions) {
+            int curRow = position[0];
+            int curCol = position[1];
+            add(set, parent, curRow, curCol, rows, cols);
+            res.add(set.size());
+        }
+        return res;
+    }
+    
+    private void add(Set<Integer> set, int[] parent, int curRow, int curCol, int rows, int cols) {
+        int idx = curRow * cols + curCol;
+        parent[idx] = idx;
+        set.add(idx);
+        for (int i = 0; i < POINTS.length - 1; i++) {
+            int newRow = curRow + POINTS[i];
+            int newCol = curCol + POINTS[i + 1];
+            int newIdx = newRow * cols + newCol;
+            if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && parent[newIdx] != -1) {
+                union(set, parent, idx, newIdx);
+            }
+        }
+    }
+    
+    private int find(int[] parent, int i) {
+        if (parent[i] == i) {
+            return i;
+        }
+        parent[i] = find(parent, parent[i]);
+        return parent[i];
+    }
+    
+    private void union(Set<Integer> set, int[] parent, int i, int j) {
+        int parentI = find(parent, i);
+        int parentJ = find(parent, j);
+        if (parentI != parentJ) {
+            parent[parentI] = parentJ;
+            set.remove(parentI);
+        }
+    }
 }

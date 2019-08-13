@@ -1,7 +1,6 @@
 package unionFind;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Arrays;
 
 /**
  * 
@@ -27,38 +26,34 @@ Given n = 5 and edges = [[0, 1], [1, 2], [2, 3], [3, 4]], return 1.
  *
  */
 public class _323_NumberOfConnectedComponentsInAnUndirectedGraph {
-	// Union Find
-	private int[] parent;
-
-	private int find(int node) {
-		if (parent[node] == node) {
-			return node;
-		}
-		// path compassion
-		parent[node] = find(parent[node]);
-		return parent[node];
-	}
-
-	private void union(int node1, int node2) {
-		int father1 = find(node1);
-		int father2 = find(node2);
-		if (father1 != father2) {
-			parent[father1] = father2;
-		}
-	}
-
-	public int countComponents(int n, int[][] edges) {
-		Set<Integer> set = new HashSet<>();
-		parent = new int[n];
-		for (int i = 0; i < n; i++) {
-			parent[i] = i;
-		}
-		for (int i = 0; i < edges.length; i++) {
-			union(edges[i][0], edges[i][1]);
-		}
-		for (int i = 0; i < n; i++) {
-			set.add(find(i));
-		}
-		return set.size();
-	}
+    public int countComponents(int n, int[][] edges) {
+        int[] parent = new int[n];
+        Arrays.fill(parent, -1);
+        for(int i = 0; i < edges.length; i++){
+            union(parent, edges[i][0], edges[i][1]);
+        }
+        int res = 0;
+        for(int i = 0; i < n; i++){
+            if (parent[i] == -1) {
+                res++;
+            }
+        }
+        return res;
+    }
+    
+    private int find(int[] parent, int i) {
+        if (parent[i] == -1) {
+            return i;
+        }
+        parent[i] = find(parent, parent[i]);
+        return parent[i];
+    }
+    
+    private void union(int[] parent, int i, int j) {
+        int parentI = find(parent, i);
+        int parentJ = find(parent, j);
+        if (parentI != parentJ) {
+            parent[parentI] = parentJ;
+        }
+    }
 }
