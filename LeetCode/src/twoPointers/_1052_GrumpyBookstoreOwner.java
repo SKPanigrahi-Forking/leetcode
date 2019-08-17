@@ -30,7 +30,7 @@ package twoPointers;
  * 
  * 0 <= customers[i] <= 1000 0 <= grumpy[i] <= 1
  */
-class Solution {
+class _1052_GrumpyBookstoreOwner {
     public int maxSatisfied(int[] customers, int[] grumpy, int X) {
         int res = 0;
         int len = customers.length;

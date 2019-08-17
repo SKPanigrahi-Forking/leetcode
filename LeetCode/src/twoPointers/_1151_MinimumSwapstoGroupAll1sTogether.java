@@ -27,7 +27,7 @@ package twoPointers;
  * 
  */
 
-class Solution {
+class _1151_MinimumSwapstoGroupAll1sTogether {
     public int minSwaps(int[] data) {
         int winSize = 0;
         for (int i : data) {
